@@ -8,10 +8,9 @@ const Computers = ({ isMobile }) => {
   const computer = useGLTF("./desktop_pc/scene.gltf");
   const computerRef = useRef();
 
-  // Use frame to continuously rotate the computer model
   useFrame(() => {
     if (computerRef.current) {
-      computerRef.current.rotation.y += 0.005; // Rotation speed
+      computerRef.current.rotation.y += 0.005;
     }
   });
 
@@ -29,7 +28,7 @@ const Computers = ({ isMobile }) => {
       <pointLight intensity={1} />
       <primitive
         object={computer.scene}
-        scale={isMobile ? 0.5 : 0.75} // Reduced mobile scale from 0.7 to 0.5
+        scale={isMobile ? 0.5 : 0.75}
         position={isMobile ? [0, -3, -2.2] : [0, -3.25, -1.5]}
         rotation={[-0.01, -0.2, -0.1]}
       />
@@ -39,6 +38,7 @@ const Computers = ({ isMobile }) => {
 
 const ComputersCanvas = () => {
   const [isMobile, setIsMobile] = useState(false);
+  const [isScrolling, setIsScrolling] = useState(false);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width: 500px)");
@@ -55,6 +55,19 @@ const ComputersCanvas = () => {
     };
   }, []);
 
+  // Detect scroll to temporarily disable OrbitControls
+  useEffect(() => {
+    let timeout;
+    const handleScroll = () => {
+      setIsScrolling(true);
+      clearTimeout(timeout);
+      timeout = setTimeout(() => setIsScrolling(false), 200); // Re-enable after 200ms
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <Canvas
       frameloop="always"
@@ -66,12 +79,10 @@ const ComputersCanvas = () => {
       <Suspense fallback={<CanvasLoader />}>
         <OrbitControls
           enableZoom={false}
-          enableRotate={!isMobile}
+          enableRotate={!isMobile && !isScrolling} // Disable while scrolling
           maxPolarAngle={Math.PI / 2}
           minPolarAngle={Math.PI / 2}
-          touchAction={isMobile ? "auto" : "none"} // Allow scrolling on mobile
         />
-
         <Computers isMobile={isMobile} />
       </Suspense>
 
