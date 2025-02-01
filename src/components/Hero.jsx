@@ -27,8 +27,10 @@ const Hero = () => {
           </p>
         </div>
       </div>
+      <div className="pt-44">
+        <ComputersCanvas />
+      </div>
 
-      <ComputersCanvas />
     </section>
   );
 };

@@ -28,8 +28,8 @@ const Computers = ({ isMobile }) => {
       <pointLight intensity={1} />
       <primitive
         object={computer.scene}
-        scale={isMobile ? 0.5 : 0.75}
-        position={isMobile ? [0, -3.5, -2.2] : [0, -3.25, -1.5]}
+        scale={isMobile ? 0.6 : 0.75}  // Increased mobile scale from 0.5 to 0.6
+        position={isMobile ? [0, -3, -2.2] : [0, -3.25, -1.5]}  // Adjusted y position from -3.5 to -4
         rotation={[-0.01, -0.2, -0.1]}
       />
     </mesh>
@@ -56,7 +56,7 @@ const ComputersCanvas = () => {
 
   return (
     <div 
-      style={{ 
+      style={{
         height: isMobile ? '350px' : '100vh',
         touchAction: 'auto',
         userSelect: 'none',
@@ -66,7 +66,7 @@ const ComputersCanvas = () => {
       <Canvas
         style={{
           touchAction: 'none',
-          pointerEvents: isMobile ? 'none' : 'auto'
+          pointerEvents: isMobile ? 'none' : 'auto',
         }}
         frameloop="always"
         shadows
