@@ -16,12 +16,13 @@ import {
   unicode,
   expo,
   litsoc,
-  carrent,
-  jobit,
   firebase,
-  tripguide,
   threejs,
   django,
+  fitcut,
+  resumeBuilder,
+  brew,
+  tinder,
 } from "../assets";
 
 export const navLinks = [
@@ -192,7 +193,7 @@ const projects = [
       { name: "react-native", color: "text-blue-500" },
       { name: "firebase", color: "text-yellow-500" },
     ],
-    image: "path/to/tinder_clone_image.png",
+    image: tinder,
     source_code_link: "https://github.com/your-tinder-clone-link",
   },
   {
@@ -204,7 +205,7 @@ const projects = [
       { name: "django", color: "text-purple-500" },
       { name: "seo", color: "text-yellow-600" },
     ],
-    image: "path/to/brew_your_experiences_image.png",
+    image: brew,
     source_code_link: "https://www.brewyourexperiences.com",
   },
   {
@@ -216,7 +217,7 @@ const projects = [
       { name: "django", color: "text-purple-500" },
       { name: "AI", color: "text-blue-600" },
     ],
-    image: "path/to/fitcut_image.png",
+    image: fitcut,
     source_code_link: "https://github.com/your-fitcut-link",
   },
   {
@@ -227,7 +228,7 @@ const projects = [
       { name: "reactjs", color: "text-green-500" },
       { name: "django", color: "text-purple-500" },
     ],
-    image: "path/to/resume_builder_image.png",
+    image: resumeBuilder,
     source_code_link: "https://resume-builder-taupe-nine.vercel.app/",
   },
 ];

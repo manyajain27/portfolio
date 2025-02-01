@@ -4,6 +4,10 @@ import { Link } from "react-router-dom";
 import { styles } from "../styles";
 import { navLinks } from "../constants";
 import { logo, menu, close } from "../assets";
+import UseAnimations from "react-useanimations";
+import github from 'react-useanimations/lib/github';
+import linkedin from 'react-useanimations/lib/linkedin';
+
 
 const Navbar = () => {
   const [active, setActive] = useState("");
@@ -48,7 +52,7 @@ const Navbar = () => {
           </p>
         </Link>
 
-        <ul className='list-none hidden sm:flex flex-row gap-10'>
+        <ul className='list-none hidden sm:flex flex-row gap-10 items-center'>
           {navLinks.map((nav) => (
             <li
               key={nav.id}
@@ -60,6 +64,16 @@ const Navbar = () => {
               <a href={`#${nav.id}`}>{nav.title}</a>
             </li>
           ))}
+          <a href="https://github.com/manyajain27" target="_blank">
+            <li className="cursor-pointer">
+            <UseAnimations animation={github} size={36} strokeColor="white" />
+            </li>
+          </a>
+          <a href="https://www.linkedin.com/in/manya-jain-7a3200284/" target="_blank">
+            <li className="cursor-pointer">
+            <UseAnimations animation={linkedin} size={36} strokeColor="white" />
+            </li>
+          </a>
         </ul>
 
         <div className='sm:hidden flex flex-1 justify-end items-center'>

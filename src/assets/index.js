@@ -25,6 +25,11 @@ import djbeats from "./company/djbeats.jpg";
 import unicode from "./company/unicode.jpg";
 import litsoc from "./company/litsoc.jpg";
 
+import fitcut from "./projects/fitcut.png";
+import resumeBuilder from "./projects/resume-builder.png";
+import brew from "./projects/brew.png";
+import tinder from "./projects/tinder.png";
+
 
 import carrent from "./carrent.png";
 import jobit from "./jobit.png";
@@ -58,4 +63,8 @@ export {
   carrent,
   jobit,
   tripguide,
+  fitcut,
+  resumeBuilder,
+  brew,
+  tinder,
 };
