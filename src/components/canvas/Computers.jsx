@@ -66,9 +66,10 @@ const ComputersCanvas = () => {
       <Suspense fallback={<CanvasLoader />}>
         <OrbitControls
           enableZoom={false}
-          enableRotate={!isMobile} // Disable rotation on mobile
+          enableRotate={!isMobile}
           maxPolarAngle={Math.PI / 2}
           minPolarAngle={Math.PI / 2}
+          touchAction={isMobile ? "auto" : "none"} // Allow scrolling on mobile
         />
 
         <Computers isMobile={isMobile} />
