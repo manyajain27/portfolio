@@ -29,8 +29,8 @@ const Computers = ({ isMobile }) => {
       <pointLight intensity={1} />
       <primitive
         object={computer.scene}
-        scale={isMobile ? 0.5 : 0.75}
-        position={isMobile ? [0, -3.5, -2.2] : [0, -3.25, -1.5]}
+        scale={isMobile ? 0.5 : 0.75} // Reduced mobile scale from 0.7 to 0.5
+        position={isMobile ? [0, -3, -2.2] : [0, -3.25, -1.5]}
         rotation={[-0.01, -0.2, -0.1]}
       />
     </mesh>
@@ -66,12 +66,11 @@ const ComputersCanvas = () => {
       <Suspense fallback={<CanvasLoader />}>
         <OrbitControls
           enableZoom={false}
+          enableRotate={!isMobile} // Disable rotation on mobile
           maxPolarAngle={Math.PI / 2}
           minPolarAngle={Math.PI / 2}
-          enablePan={false}
-          enableRotate={!isMobile}  // Disable rotation on mobile
-          touchEnabled={false}      // Disable touch controls
         />
+
         <Computers isMobile={isMobile} />
       </Suspense>
 
